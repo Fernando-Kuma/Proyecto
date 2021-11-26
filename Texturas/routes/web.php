@@ -17,24 +17,12 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/app/index', function () {
+Route::get('/app', function () {
     return view('app');
 });
-Route::get('/app/usuarios', function () {
-    return view('app/usuarios');
-});
-Route::get('/app/categorias', function () {
-    return view('app/categorias');
+Route::get('/signup', function () {
+    return view('signup');
 });
 
-/*
-Route::get('', function(){ return view('')});
-
-Route::get('/loginapp', function () {
-    return view('login');
-});
-
-
-*/
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

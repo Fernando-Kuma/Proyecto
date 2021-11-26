@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['namespace' => 'App\Http\Controllers'],function () {
+Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'application'],function () {
     //Usuarios
     Route::get('users', 'UserController@index');
     Route::post('users', 'UserController@store');
@@ -30,9 +30,6 @@ Route::group(['namespace' => 'App\Http\Controllers'],function () {
     Route::post('categorias', 'CategoriasController@store');
     Route::put('categorias/{id}', 'CategoriasController@update');
     Route::delete('categorias/{id}', 'CategoriasController@destroy');
-
-
-
 
     //Clientes
     Route::get('clientes', 'ClientesController@index');
@@ -87,8 +84,12 @@ Route::group([
     Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
     Route::post('me', 'App\Http\Controllers\AuthController@me');
     Route::post('register', 'App\Http\Controllers\AuthController@register');
-    Route::get('users', 'App\Http\Controllers\AuthController@show');
-    
+
+    Route::group(['namespace' => 'App\Http\Controllers'],function () {
+        //Usuarios
+        Route::get('categorias', 'CategoriasController@index');
+        Route::get('users', 'UserController@index');
+    });
 });
 
 

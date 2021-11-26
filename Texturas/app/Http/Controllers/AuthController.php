@@ -18,6 +18,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        //$this->middleware('auth:api');
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -88,7 +89,10 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
+
         return response()->json([
+            'name' => auth()->user()->Nombre,
+            'comentario' => 'Se inicio correctamente',
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60

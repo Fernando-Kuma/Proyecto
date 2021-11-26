@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ventas;
 use Illuminate\Http\Request;
+use App\Models\Detalle_venta;
 
 class VentasController extends Controller
 {

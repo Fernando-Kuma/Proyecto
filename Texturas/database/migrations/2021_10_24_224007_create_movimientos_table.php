@@ -18,7 +18,7 @@ class CreateMovimientosTable extends Migration
             $table->enum('Tipo_de_movimiento', ['Venta', 'Alta', 'Baja', 'Existencia_actual']);
             $table->foreignId('Producto_id')->constrained('productos');
             $table->integer('Cantidad');
-            $table->foreignId('Usuario_id')->constrained('usuarios');
+            $table->foreignId('Usuario_id')->constrained('users');
             $table->timestamps();
             $table->softDeletes();
         });

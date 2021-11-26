@@ -11,10 +11,12 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-require('./components/pages/Index');
-require('./components/pages/AppIndex');
-require('./components/pages/Usuarios');
-require('./components/pages/Ejemplo');
+require('./components/App');
+require('./components/pages/SignUp');
+//require('./components/pages/Index');
+//require('./components/pages/AppIndex');
+//require('./components/pages/Usuarios');
+//require('./components/pages/Ejemplo');
+//require('./components/pages/EjemploNabvar');
 //require('./login/Form');
 

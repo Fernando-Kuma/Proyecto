@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from "../menu/Navbar";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -94,7 +93,6 @@ class Ejemplo extends Component {
         const { form } = this.state;
         return (
             <div className="App">
-                <NavBar />
                 <div className="container">
                     <br />
                     <div className="d-grid col-3 mx-auto">

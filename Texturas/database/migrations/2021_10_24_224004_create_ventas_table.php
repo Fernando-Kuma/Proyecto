@@ -16,7 +16,7 @@ class CreateVentasTable extends Migration
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('Cliente_id')->constrained('clientes');
-            $table->foreignId('Usuario_id')->constrained('usuarios');
+            $table->foreignId('Usuario_id')->constrained('users');
             $table->float('Total');
             $table->timestamps();
             $table->softDeletes();

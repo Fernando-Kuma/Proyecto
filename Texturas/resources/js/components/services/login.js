@@ -1,11 +1,9 @@
 import axios from "axios";
-
-const baseUrl = "http://127.0.0.1:8000/api/auth";
-
+import Url from "./utils/Ruta";
 
 
 const login = async credentials => {
-    const {data} = await axios.post(baseUrl + "/login", credentials)
+    const {data} = await axios.post(Url.baseUrl + "auth/login", credentials)
     return data
 }
 
