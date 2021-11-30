@@ -115,6 +115,5 @@ export default function SignIn ({ handleSubmit, ...props }) {
 }
 
 SignIn.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
   email: PropTypes.string
 }

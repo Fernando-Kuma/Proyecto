@@ -17,7 +17,7 @@ const style = {
   p: 4,
 };
 
-export default function ModalForm( {Formulario }) {
+export default function ModalForm() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,6 +32,7 @@ export default function ModalForm( {Formulario }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          
           <UsuariosForm />
         </Box>
       </Modal>

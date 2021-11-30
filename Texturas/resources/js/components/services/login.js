@@ -1,10 +1,18 @@
 import axios from "axios";
-import Url from "./utils/Ruta";
+import ruta from "./utils/Ruta";
 
+const baseUrl = ruta.url + "login"
+const baseToken = ruta.url + "refresh"
 
 const login = async credentials => {
-    const {data} = await axios.post(Url.baseUrl + "auth/login", credentials)
+
+    const {data} = await axios.post(baseUrl, credentials)
     return data
 }
 
-export default { login }
+const refreshToken = async() => {
+    const {data} = await axios.post(baseToken)
+    return data
+}
+
+export default { login, refreshToken }

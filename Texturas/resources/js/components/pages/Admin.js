@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemText from '@mui/material/ListItemText';
+import Button from '@mui/material/Button';
 
 import { Link, Outlet } from "react-router-dom";
 import MenuAdmin from "./../data-module/menu/MenuAdmin";
@@ -123,7 +124,9 @@ export default function Admin() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <ListItemText primary='Texturas y Muros' />
+          <Button color="secondary">
+            <ListItemText primary='Dashboard T&M' />
+          </Button>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>

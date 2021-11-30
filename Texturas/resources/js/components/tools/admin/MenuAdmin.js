@@ -33,7 +33,7 @@ export default function MenuAdmin() {
   const handleLogout = () => {
     window.localStorage.removeItem('loggedAppUser');
     Services.Global.deleteToken();
-    window.location.hostname();
+    //window.location.hostname();
     window.location.reload();
   }
 

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, Component } from 'react';
 import ReactDOM from 'react-dom';
-import './App.css';
 import Rutas from "./routes/Rutas";
 import Notification from './utils/Notification';
 import Pages from "./pages/Index";
 import Services from "./services/Index";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
 
 const App = () => {
 
@@ -13,6 +15,7 @@ const App = () => {
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
+      Services.Global.setToken(user.access_token)
     }
   }, [])
 
@@ -32,11 +35,12 @@ const App = () => {
       window.localStorage.setItem(
         'loggedAppUser', JSON.stringify(user)
         );
+      Services.Global.setToken(user.access_token)
       setUser(user);
       setEmail('');
       setPassword('');
     } catch (e) {
-      setErrorMessage('Error ' + e);
+      setErrorMessage(' ' + e);
       setTimeout(() => {
         setErrorMessage(null)
       }, 5000)
@@ -45,6 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
+
       {
         user
           ?
@@ -52,7 +57,9 @@ const App = () => {
             <Rutas />
           </div>
           :
-          <Pages.SignIn
+          <div >
+            <Notification message={errorMessage} />
+            <Pages.SignIn
             email={email}
             password={password}
             handleEmailChange={
@@ -63,8 +70,9 @@ const App = () => {
             }
             handleSubmit={handleLogin}
           />
+          </div>
       }
-      <Notification message={errorMessage} />
+
     </div>
   )
 }

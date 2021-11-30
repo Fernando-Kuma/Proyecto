@@ -1,28 +1,18 @@
 import axios from 'axios'
-import Url from "./utils/Ruta";
+import ruta from "./utils/Ruta";
 
-let token = null ;
-let userToken = JSON.parse(window.localStorage.getItem('loggedAppUser'));
-
-
-const setToken = () => {
-    
-    
-    //console.log(userToken.access_token);
-}
+const baseUrl = ruta.url + "users/"
 
 const getAll = () => {
-    if(userToken){
-        token = `Bearer ${userToken.access_token}`;
-    }
-    const config = {
-        headers: {
-        Authorization: token
-        }
-    }
-    const request = axios.get(Url.baseUrl + "auth/users", config)
+    const request = axios.get(baseUrl)
     return request
 }
+
+const create = (newObject) => {
+    const request = axios.post(baseUrl, newObject)
+    return request
+}
+
 
 /*
 const getAll = () => {
@@ -52,4 +42,4 @@ const request = axios.put(`${baseUrl}/${id}`, newObject, config)
     return request.then(response => response.data)
 }
 */
-export default { getAll }
+export default { getAll, create }

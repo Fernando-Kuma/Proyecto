@@ -1,4 +1,9 @@
-import React from 'react'
+import * as React from 'react';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
+
 
 const Notification = ({ message }) => {
   if (message === null) {
@@ -6,9 +11,12 @@ const Notification = ({ message }) => {
   }
 
   return (
-    <div className="error">
-      {message}
-    </div>
+    <Container component="main" maxWidth="sm">
+      <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+          {message} — <strong>check it out!  </strong>
+      </Alert>
+      </Container>
   )
 }
 

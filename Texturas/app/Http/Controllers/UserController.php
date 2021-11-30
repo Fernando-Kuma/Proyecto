@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 class UserController extends Controller
@@ -37,7 +38,7 @@ class UserController extends Controller
         $user = User::create(array_merge(
             $validator->validate(),
             ['password' => bcrypt($request->password),
-            'Creado_por' => auth()->user()->id]
+            'Creado_por' => JWTAuth::user()->id ]
 
         ));
         return response()->json([
