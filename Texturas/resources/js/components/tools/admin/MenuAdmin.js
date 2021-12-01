@@ -22,7 +22,7 @@ const listMenu = [
   { name: "Usuarios", ruta: "usuarios", icon: <GroupIcon /> },
   { name: "Categorias/Productos", ruta: "categorias", icon: <LocalGroceryStoreIcon /> },
   { name: "Inventario", ruta: "inventario", icon: <InventoryIcon /> },
-  { name: "Cliente", ruta: "cliente", icon: <PeopleIcon /> },
+  { name: "Clientes", ruta: "clientes", icon: <PeopleIcon /> },
   { name: "Venta", ruta: "venta", icon: <AttachMoneyIcon /> },
   { name: "Error", ruta: "error", icon: <CodeIcon /> },
 ];

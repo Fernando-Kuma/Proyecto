@@ -63,8 +63,10 @@ class UserController extends Controller
         $usuarios = User::findOrFail($request->id);
         $usuarios->Nombre = $request->Nombre;
         $usuarios->Apellidos = $request->Apellidos;
-        $usuarios->Correo = $request->Correo;
-        $usuarios->Contraseña = $request->Contraseña;
+        $usuarios->email = $request->email;
+        if( $request->password != ''){
+            $usuarios->password = bcrypt($request->password);
+        };
         $usuarios->Telefono = $request->Telefono;
         $usuarios->Rol_id = $request->Rol_id;
         $usuarios->Creado_por = $request->Creado_por;

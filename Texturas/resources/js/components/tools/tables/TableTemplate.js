@@ -6,8 +6,14 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import Fingerprint from '@mui/icons-material/Fingerprint';
+import DeleteIcon from '@mui/icons-material/Delete';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 function TableTemplate({columns, rows}) {
+
   return (
     <Paper sx={{ width: '99%', overflow: 'hidden' }}>
         <TableContainer sx={{ maxHeight: 440 }}>
@@ -45,7 +51,7 @@ function TableTemplate({columns, rows}) {
             </TableBody>
           </Table>
         </TableContainer>
-      </Paper>
+    </Paper>
   )
 }
 

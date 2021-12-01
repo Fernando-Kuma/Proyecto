@@ -31,25 +31,11 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'auth'], functi
         Route::post('users', 'UserController@store');
         Route::put('users/{id}', 'UserController@update');
         Route::delete('users/{id}', 'UserController@destroy');
+        //Usuarios
+        Route::get('clients', 'ClientesController@index');
+        Route::post('clients', 'ClientesController@store');
+        Route::put('clients/{id}', 'ClientesController@update');
+        Route::delete('clients/{id}', 'ClientesController@destroy');
     });
 });
-
-
-/*Route::group([
-    'middleware' => 'api',
-    'prefix' => 'auth'
-], function ($router) {
-    Route::post('login', 'App\Http\Controllers\AuthController@login');
-    Route::post('logout', 'App\Http\Controllers\AuthController@logout');
-    Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
-    Route::post('me', 'App\Http\Controllers\AuthController@me');
-    Route::post('register', 'App\Http\Controllers\AuthController@register');
-    
-    Route::get('categorias', 'App\Http\Controllers\CategoriasController@index');
-    Route::get('users', 'App\Http\Controllers\UserController@index');
-});*/
-/*Route::prefix('auth')->group(function () {
-    
-});*/
-
 

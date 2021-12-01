@@ -36,7 +36,7 @@ const style = {
     pb: 3,
 };
 
-const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }) => {
+const ClientesForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }) => {
     const [values, setValues] = React.useState(dataValues);
     const [open, setOpen] = React.useState(false);
     const [opcion, setOpcion] = React.useState(dataOpcion);
@@ -52,7 +52,7 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
         console.log(values);
     };
     const peticionPost = (values) => {
-        Service.Usuarios.create(values).then(response => {
+        Service.Clientes.create(values).then(response => {
             handleClose();
             console.log(response);
             window.location.reload();
@@ -61,7 +61,7 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
         })
     }
     const peticionPut = (values) => {
-        Service.Usuarios.update(values).then(response => {
+        Service.Clientes.update(values).then(response => {
             handleClose();
             console.log(response);
             window.location.reload();
@@ -70,7 +70,7 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
         })
     }
     const peticionDelete = (values) => {
-        Service.Usuarios.destroy(values).then(response => {
+        Service.Clientes.destroy(values).then(response => {
             handleClose();
             console.log(response);
             window.location.reload();
@@ -80,6 +80,7 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
     }
 
     return (
+
         <React.Fragment>
             {
                 opcion == 'insertar'
@@ -153,7 +154,7 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
                             id={dataForm[3].id}
                             sx={{ m: 1, width: '25ch' }}
                             type={dataForm[3].type}
-                            value={values.email}
+                            value={values.Correo}
                             variant="filled"
                             onChange={handleChange(dataForm[3].id)}
                             color="secondary"
@@ -163,30 +164,13 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
                             id={dataForm[4].id}
                             sx={{ m: 1, width: '25ch' }}
                             type={dataForm[4].type}
-                            value={values.password}
+                            value={values.Contraseña}
                             variant="filled"
                             onChange={handleChange(dataForm[4].id)}
                             color="secondary"
                         />
-                        <TextField
-                            label={dataForm[5].label}
-                            id={dataForm[5].id}
-                            sx={{ m: 1, width: '25ch' }}
-                            value={values.Rol_id}
-                            select
-                            variant="filled"
-                            onChange={handleChange(dataForm[5].id)}
-                            color="secondary">
-                            {dataForm[5].opc.map((text, index) => (
-                                <MenuItem key={index} value={text}>
-                                    {text}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-
                     </Grid>
                     <Divider />
-
                     <Grid sx={{ mx: 'auto', p: '10px', textAlign: 'center', }}>
                             {opcion == 'insertar'
                             ?
@@ -212,4 +196,4 @@ const UsuariosForm = ({ dataForm, dataValues, dataTitle, dataIcono, dataOpcion }
     );
 }
 
-export default UsuariosForm
+export default ClientesForm

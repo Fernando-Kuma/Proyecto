@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('Apellidos');
             $table->string('Correo')->unique();
             $table->string('Contraseña');
-            $table->integer('Telefono');
+            $table->string('Telefono');
             $table->timestamps();
             $table->softDeletes();
         });

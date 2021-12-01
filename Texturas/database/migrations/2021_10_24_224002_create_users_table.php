@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('Creado_por')->nullable()->constrained('users');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         DB::table("users")

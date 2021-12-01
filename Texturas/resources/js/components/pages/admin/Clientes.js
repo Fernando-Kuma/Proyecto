@@ -18,12 +18,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import BorderColorIcon from '@mui/icons-material/BorderColor';
 
 import Service from './../../services/Index'
-import UsuariosForm from './../../tools/forms/UsuariosForm';
-import DataUsuarios from './../../data-module/Usuarios';
+import ClientesForm from './../../tools/forms/ClientesForm';
+import DataClientes from './../../data-module/Clientes';
 
 
 
-class Usuarios extends Component {
+class Clientes extends Component {
   state = {
     data: [],
   }
@@ -33,7 +33,7 @@ class Usuarios extends Component {
   }
 
   peticionGet = () => {
-    Service.Usuarios.getAll().then(response => {
+    Service.Clientes.getAll().then(response => {
       //Testing metodo get-> 
       console.log(response.data);
       this.setState({ data: response.data });
@@ -49,7 +49,7 @@ class Usuarios extends Component {
   }
 
   render() {
-    const rows = this.state.data.map(fila => DataUsuarios.createData(fila.id, fila.Nombre, fila.Apellidos, fila.email, fila.Telefono, fila.Rol_id));
+    const rows = this.state.data.map(fila => DataClientes.createData(fila.id, fila.Nombre, fila.Apellidos, fila.Correo, fila.Telefono));
 
     return (
       <>
@@ -59,16 +59,18 @@ class Usuarios extends Component {
               <Grid container sx={{ p: '15px' }}>
                 <Grid item xs>
                   <Typography variant="h6" noWrap component="div">
-                    Tabla de usuarios administradores
+                    Tabla de clientes
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <UsuariosForm
-                    dataForm={DataUsuarios.form}
-                    dataValues={DataUsuarios.valuesUsuario}
-                    dataTitle={DataUsuarios.titlePost()}
+
+                  <ClientesForm
+                    dataForm={DataClientes.form}
+                    dataValues={DataClientes.valuesClientes}
+                    dataTitle={DataClientes.titlePost()}
                     dataOpcion="insertar"
                   />
+
                 </Grid>
               </Grid>
               <Paper sx={{ width: '99%', overflow: 'hidden' }}>
@@ -76,7 +78,7 @@ class Usuarios extends Component {
                   <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                       <TableRow>
-                        {DataUsuarios.columns.map((column) => (
+                        {DataClientes.columns.map((column) => (
                           <TableCell
                             key={column.id}
                             align={column.align}
@@ -94,7 +96,7 @@ class Usuarios extends Component {
                       {rows.map((row) => {
                         return (
                           <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                            {DataUsuarios.columns.map((column) => {
+                            {DataClientes.columns.map((column) => {
                               const value = row[column.id];
                               return (
                                 <TableCell key={column.id} align={column.align}>
@@ -105,17 +107,17 @@ class Usuarios extends Component {
                               );
                             })}
                             <TableCell>
-                              <UsuariosForm
-                                dataForm={DataUsuarios.form}
+                              <ClientesForm
+                                dataForm={DataClientes.form}
                                 dataValues={row}
-                                dataTitle={DataUsuarios.titleEdit()}
+                                dataTitle={DataClientes.titleEdit()}
                                 dataIcono= {<BorderColorIcon />}
                                 dataOpcion="actualizar"
                               />
-                              <UsuariosForm
-                                dataForm={DataUsuarios.form}
+                              <ClientesForm
+                                dataForm={DataClientes.form}
                                 dataValues={row}
-                                dataTitle={DataUsuarios.titleDelete()}
+                                dataTitle={DataClientes.titleDelete()}
                                 dataIcono= {<DeleteIcon />}
                                 dataOpcion="eliminar"
                               />
@@ -136,4 +138,4 @@ class Usuarios extends Component {
 }
 
 
-export default Usuarios;
+export default Clientes;

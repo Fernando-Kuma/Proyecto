@@ -1,7 +1,7 @@
 import axios from 'axios'
 import ruta from "./utils/Ruta";
 
-const baseUrl = ruta.url + "users"
+const baseUrl = ruta.url + "clients"
 
 const getAll = () => {
     const request = axios.get(baseUrl)
@@ -25,3 +25,4 @@ const destroy = (object) => {
 
 
 export default { getAll, create, update, destroy }
+

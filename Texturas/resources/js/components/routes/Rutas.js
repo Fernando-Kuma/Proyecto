@@ -23,6 +23,7 @@ function Rutas() {
             <Route path="frutas" element={<h1>Frutas</h1>} />
             <Route path="verduras" element={<h1>verduras</h1>} />
           </Route>
+          <Route path="clientes" element={<Pages.Clientes />} />
           <Route path="error" element={<Pages.Ejemplos />} />
           <Route path="*" element={
             <main style={{ padding: "1rem" }}>

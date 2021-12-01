@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class ClientesController extends Controller
 {
-    public function __construct()
-    {            
-        $this->middleware('auth:api');
-    }
     
     public function index()
     {
@@ -31,7 +27,7 @@ class ClientesController extends Controller
         $clientes->Nombre = $request->Nombre;
         $clientes->Apellidos = $request->Apellidos;
         $clientes->Correo = $request->Correo;
-        $clientes->Contraseña = $request->Contraseña;
+        $clientes->Contraseña = bcrypt($request->Contraseña);
         $clientes->Telefono = $request->Telefono;
         $clientes->save();
         return $clientes;
@@ -54,7 +50,9 @@ class ClientesController extends Controller
         $clientes->Nombre = $request->Nombre;
         $clientes->Apellidos = $request->Apellidos;
         $clientes->Correo = $request->Correo;
-        $clientes->Contraseña = $request->Contraseña;
+        if( $request->Contraseña != ''){
+            $clientes->Contraseña = bcrypt($request->Contraseña);
+        };
         $clientes->Telefono = $request->Telefono;
         $clientes->save();
         return $clientes;

@@ -18,21 +18,14 @@ class CreateRolesTable extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('Nombre')->unique();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
         
-        DB::table("roles")
-            ->insert([
-                "Nombre" => "Root"
-            ],
-            [
-                "Nombre" => "Admin"
-            ],
-            [
-                "Nombre" => "User"
-            ],
-        );
+        DB::table("roles")->insert(["Nombre" => "Root"]);
+        DB::table("roles")->insert(["Nombre" => "Admin"]);
+        DB::table("roles")->insert(["Nombre" => "User"]);
+        
     }
 
     /**
