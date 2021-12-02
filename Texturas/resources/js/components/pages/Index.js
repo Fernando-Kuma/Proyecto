@@ -5,6 +5,7 @@ import HomeAdmin from "./admin/HomeAdmin";
 import Usuarios from "./admin/Usuarios";
 import Ejemplos from "./admin/Ejemplos";
 import Clientes from "./admin/Clientes";
+import Productos from "./admin/Productos";
 
 export default { 
     Admin, 
@@ -13,5 +14,6 @@ export default {
     HomeAdmin, 
     Ejemplos,
     Usuarios,
-    Clientes
+    Clientes,
+    Productos
 }

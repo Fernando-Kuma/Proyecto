@@ -31,11 +31,16 @@ Route::group(['namespace' => 'App\Http\Controllers', 'prefix' => 'auth'], functi
         Route::post('users', 'UserController@store');
         Route::put('users/{id}', 'UserController@update');
         Route::delete('users/{id}', 'UserController@destroy');
-        //Usuarios
+        //Clientes
         Route::get('clients', 'ClientesController@index');
         Route::post('clients', 'ClientesController@store');
         Route::put('clients/{id}', 'ClientesController@update');
         Route::delete('clients/{id}', 'ClientesController@destroy');
+        //Productos
+        Route::get('products', 'ProductosController@index');
+        Route::post('products', 'ProductosController@store');
+        Route::put('products/{id}', 'ProductosController@update');
+        Route::delete('products/{id}', 'ProductosController@destroy');
     });
 });
 
